@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracking Demo</title>
+    <style>
+        body{
+            background: #000;
+        }
+        #video-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        video {
+            border: 2px solid #ccc;
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Real-Time Eye, Finger, and Body Tracking</h1>
+    <div id="video-container">
+        <video id="video" autoplay></video>
+    </div>
+
+    <script>
+        // Access the webcam
+        const video = document.getElementById('video');
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then((stream) => {
+                video.srcObject = stream;
+            })
+            .catch((err) => {
+                console.log("Error: " + err);
+            });
+    </script>
+
+</body>
+</html>
